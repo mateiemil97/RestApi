@@ -1,0 +1,12 @@
+using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                
+                SqlCommand cmd = new SqlCommand("SELECT * FROM customer", conn);
+               // cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                // cmd.Parameters.AddWithValue("@Last_name", "Matei");
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                sqlDataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+            }
