@@ -1,0 +1,9 @@
+using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "sp_GetEmployeeWithDepartament";
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, conn);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+            }
